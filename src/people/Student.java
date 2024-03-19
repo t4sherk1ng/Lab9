@@ -1,44 +1,43 @@
 package people;
 
-public class Student extends Human{
+public class Student extends Human {
 
     private String recordBookNumber;
     private String faculty;
 
-    public Student(String firstName, String lastName, String recordBookNumber, String faculty) throws Exception{
+
+    public Student(String firstName, String lastName, String recordBookNumber, String faculty) {
         super(firstName, lastName);
         this.setRecordBookNumber(recordBookNumber);
         this.setFaculty(faculty);
     }
 
-    private void setRecordBookNumber(String recordBookNumber) throws Exception {
+    private void setRecordBookNumber(String recordBookNumber) {
         if (recordBookNumber.matches("^[0-9]{4}-[0-9]{2}-[0-9a-zа-я]{5}$")) {
             this.recordBookNumber = recordBookNumber;
         } else {
-            throw new Exception("Invalid record book number!");
+            throw new IllegalArgumentException("Invalid record book number!");
         }
     }
 
-    private void setFaculty(String faculty) throws Exception {
+    private void setFaculty(String faculty) {
         if (faculty.matches("^[A-ZА-Я]{3}$")) {
             this.faculty = faculty;
         } else {
-            throw new Exception("Expected value mismatch! Argument: faculty");
+            throw new IllegalArgumentException("Expected value mismatch! Argument: faculty");
         }
     }
 
     private String calculateFacultyNumber(String group, String groupCode) {
-        return group + "-" + String.valueOf(2024-Integer.parseInt(groupCode.split("-")[0])) + groupCode.split("-")[1];
+        return group + "-" + (2024 - Integer.parseInt(groupCode.split("-")[0])) + groupCode.split("-")[1];
     }
 
     @Override
     public String toString() {
-        return "people.Student{" +
-                "recordBookNumber='" + recordBookNumber + '\'' +
-                ", faculty='" + faculty + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", facultyNumber='" + calculateFacultyNumber(faculty, recordBookNumber) + '\'' +
-                '}';
+        final StringBuilder sb = new StringBuilder();
+        sb.append("First Name: ").append(this.firstName).append(System.lineSeparator())
+                .append("Last Name: ").append(this.lastName).append(System.lineSeparator())
+                .append("Faculty number: ").append(calculateFacultyNumber(faculty, recordBookNumber));
+        return sb.toString();
     }
 }
