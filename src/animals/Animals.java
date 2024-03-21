@@ -18,6 +18,9 @@ public class Animals {
         return label.length() >= 2;
     }
 
+
+
+    //FIXME switch to StringBuilder
     @Override
     public String toString() {
         return "Animals{" +
