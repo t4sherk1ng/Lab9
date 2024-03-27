@@ -8,4 +8,9 @@ public class Invertebrates extends MultiCellular{
         super(label, false);
         this.hasLegs = hasLegs;
     }
+
+    @Override
+    public String toString() {
+        return label + " is a Multicellular Animal without backbone";
+    }
 }

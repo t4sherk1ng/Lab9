@@ -10,4 +10,9 @@ public class ColdBlooded extends Vertebrates{
         this.isLivesOnLand = isLivesOnLand;
         this.isLivesUnderwater = isLivesUnderwater;
     }
+
+    @Override
+    public String toString() {
+        return label + " is a Vertebrates Multicellular Animals without warm blood";
+    }
 }

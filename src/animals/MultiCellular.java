@@ -8,4 +8,9 @@ public class MultiCellular extends Animals{
         super(label, true);
         this.isVertebrates = isVertebrates;
     }
+
+    @Override
+    public String toString() {
+        return label + " is a Multicellular Animal";
+    }
 }
