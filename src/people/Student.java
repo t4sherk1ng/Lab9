@@ -13,7 +13,10 @@ public class Student extends Human {
     }
 
     private void setRecordBookNumber(String recordBookNumber) {
-        if (recordBookNumber.matches("^[0-9]{4}-[0-9]{2}-[0-9a-zа-я]{5}$")) {
+        if (recordBookNumber == null) {
+            throw new IllegalArgumentException("Record book number cant be null");
+        }
+        else if (recordBookNumber.matches("^[0-9]{4}-[0-9]{2}-[0-9a-zа-я]{5}$")) {
             this.recordBookNumber = recordBookNumber;
         } else {
             throw new IllegalArgumentException("Invalid record book number!");
@@ -21,7 +24,10 @@ public class Student extends Human {
     }
 
     private void setFaculty(String faculty) {
-        if (faculty.matches("^[A-ZА-Я]{3}$")) {
+        if (faculty == null) {
+            throw new IllegalArgumentException("Faculty cant be null");
+        }
+        else if (faculty.matches("^[A-ZА-Я]{3}$")) {
             this.faculty = faculty;
         } else {
             throw new IllegalArgumentException("Expected value mismatch! Argument: faculty");

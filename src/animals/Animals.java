@@ -6,7 +6,7 @@ public class Animals {
     protected boolean isMulticellular;
 
     public Animals(String label, boolean isMulticellular) {
-        if (isCorrectLabel(label)) {
+        if (label != null && isCorrectLabel(label)) {
             this.label = label;
         } else {
             throw new IllegalArgumentException("Invalid value. Try again");
@@ -15,7 +15,7 @@ public class Animals {
     }
 
     public boolean isCorrectLabel(String label) {
-        return label.length() >= 2;
+        return label.length() >= 2 ;
     }
 
 

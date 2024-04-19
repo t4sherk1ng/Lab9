@@ -11,7 +11,10 @@ public class Human {
     }
 
     protected void setFirstName(String firstName) {
-        if (firstName.matches("^[A-ZА-Я][a-zа-я]{1,}$")) {
+        if (firstName == null) {
+            throw new IllegalArgumentException("Name cant be null");
+        }
+         else if (firstName.matches("^[A-ZА-Я][a-zа-я]{1,}$")) {
             this.firstName = firstName;
         } else if (firstName.length() < 2) {
             throw new IllegalArgumentException("Expected length at least 2 symbols! Argument: firstName");
@@ -23,7 +26,10 @@ public class Human {
     }
 
     protected void setLastName(String lastName) {
-        if (lastName.matches("^[A-ZА-Я][a-zа-я]{2,}$")) {
+        if (lastName == null) {
+            throw new IllegalArgumentException("Name cant be null");
+        }
+        else if (lastName.matches("^[A-ZА-Я][a-zа-я]{2,}$")) {
             this.lastName = lastName;
         } else if (lastName.length() < 3) {
             throw new IllegalArgumentException("Expected length at least 3 symbols! Argument: lastName");
